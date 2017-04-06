@@ -6,6 +6,7 @@ public class Image {
      private String name;
      private String url;
      private Product product;
+     private int productId;
      
 	public Image() {
 		super();
@@ -17,6 +18,13 @@ public class Image {
 		this.name = name;
 		this.url = url;
 		this.product = product;
+	}
+	
+	public int getProductId() {
+		return productId;
+	}
+	public void setProductId(int productId) {
+		this.productId = productId;
 	}
 	public int getImageId() {
 		return imageId;

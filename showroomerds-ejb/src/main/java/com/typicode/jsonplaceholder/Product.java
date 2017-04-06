@@ -1,6 +1,7 @@
 package com.typicode.jsonplaceholder;
 
-
+import java.util.ArrayList;
+import java.util.List;
 
 public class Product {
 	int productId;
@@ -11,31 +12,33 @@ public class Product {
 	float price;
 	int quantity;
 	float tva;
-	String interactions;
+	private List<Interaction> interactions = new ArrayList<Interaction>();
+	private List<Showroom> showrooms = new ArrayList<Showroom>();
+	private List<Image> images = new ArrayList<Image>();
 	public Product() {
 		super();
 	}
 
-	public Product(int productId, String name, String brand, String category, float discount, float price, int quantity,
-			float tva,String interactions) {
-		super();
-		this.productId = productId;
-		this.name = name;
-		this.brand = brand;
-		this.category = category;
-		this.discount = discount;
-		this.price = price;
-		this.quantity = quantity;
-		this.tva = tva;
-		this.interactions=interactions;
-	}
-	
 	@Override
 	public String toString() {
 		return "Product [productId=" + productId + ", name=" + name + ", brand=" + brand + ", category=" + category
 				+ ", discount=" + discount + ", price=" + price + ", quantity=" + quantity + ", tva=" + tva + "]";
 	}
 
+	public List<Image> getImages() {
+		return images;
+	}
+
+	public void setImages(List<Image> images) {
+		this.images = images;
+	}
+
+	public List<Showroom> getShowrooms() {
+		return showrooms;
+	}
+	public void setShowrooms(List<Showroom> showrooms) {
+		this.showrooms = showrooms;
+	}
 	public int getProductId() {
 		return productId;
 	}
@@ -85,13 +88,18 @@ public class Product {
 		this.tva = tva;
 	}
 
-	public String getInteractions() {
+
+
+	public List<Interaction> getInteractions() {
 		return interactions;
 	}
 
-	public void setInteractions(String interactions) {
+
+
+	public void setInteractions(List<Interaction> interactions) {
 		this.interactions = interactions;
 	}
+
 	
 
 }

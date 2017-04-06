@@ -6,36 +6,50 @@ import java.util.List;
 public class Showroom {
 
 	private int showroomId;
-	private List<Showroomer> showroomers = new ArrayList<Showroomer>();
-	private List<Product> products = new ArrayList<Product>();
+	private int showroomerId;
+	private int productId;
+	private Showroomer showroomer ;
+	private Product product;
 	
 	public Showroom() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Showroom(int showroomId, List<Showroomer> showroomers, List<Product> products) {
-		super();
-		this.showroomId = showroomId;
-		this.showroomers = showroomers;
-		this.products = products;
-	}
+	
 	public int getShowroomId() {
 		return showroomId;
 	}
 	public void setShowroomId(int showroomId) {
 		this.showroomId = showroomId;
 	}
-	public List<Showroomer> getShowroomers() {
-		return showroomers;
+	
+	public Showroomer getShowroomer() {
+		return showroomer;
 	}
-	public void setShowroomers(List<Showroomer> showroomers) {
-		this.showroomers = showroomers;
+
+	public void setShowroomer(Showroomer showroomer) {
+		this.showroomer = showroomer;
 	}
-	public List<Product> getProducts() {
-		return products;
+
+	public Product getProduct() {
+		return product;
 	}
-	public void setProducts(List<Product> products) {
-		this.products = products;
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+
+	public int getShowroomerId() {
+		return showroomerId;
+	}
+	public void setShowroomerId(int showroomerId) {
+		this.showroomerId = showroomerId;
+	}
+	public int getProductId() {
+		return productId;
+	}
+	public void setProductId(int productId) {
+		this.productId = productId;
 	}
 	
 }
