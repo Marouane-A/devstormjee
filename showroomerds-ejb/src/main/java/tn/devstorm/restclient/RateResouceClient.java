@@ -14,64 +14,49 @@ import javax.ws.rs.core.Response;
 
 import com.typicode.jsonplaceholder.Rate;
 
+
 public class RateResouceClient {
 
-	public static void main(String[] args) {
-		RateResouceClient rrc=new RateResouceClient();
-		System.out.println(rrc.getRate(2));
-
+	public static void main (String [] args){
+		RateResouceClient urc =new RateResouceClient();
+		System.out.println(urc.getRate(2));
 	}
 	public List<Rate> getRates(){
 		Client client = ClientBuilder.newClient();
-
-		WebTarget baseURL = client.target("http://localhost:5000/api/Rate");
-		List<Rate> rates = baseURL.request(MediaType.APPLICATION_JSON).get(new GenericType<List<Rate>>() {});
+		WebTarget baseURL = client.target("http://localhost:5000/api/Rate/getall");
+		List<Rate> Rates = baseURL.request(MediaType.APPLICATION_JSON).get(new GenericType<List<Rate>>() {});
 		client.close();
-		return rates;
+		return Rates;
 		
 	}
-	public Rate getRate(int id) {
+	public Rate getRate(int id){
 		Client client = ClientBuilder.newClient();
-		
-		
-		WebTarget baseUrl = client.target("http://localhost:5000/api/Rate");
-		WebTarget getRateURL=baseUrl.path(""+id);
-		Response response = getRateURL.request(MediaType.APPLICATION_JSON).get();
-		Rate rate=response.readEntity(Rate.class);
-		//Rate sh =mapper.readValue(getRateURL.request(MediaType.APPLICATION_JSON).get(String.class), Rate.class);
-		response.close();
-		client.close();
-		return rate;
-		
+		WebTarget baseUrl = client.target("http://localhost:5000/api/Rate");		
+		Response response = baseUrl.request(MediaType.APPLICATION_JSON).header("id", id).get();
+		Rate rate =response.readEntity(Rate.class);
+		response.close();		
+		return rate;		
 	}
 	
 	public int deleteRate(int id){
 		Client client = ClientBuilder.newClient();
-
-		WebTarget baseUrl = client.target("http://localhost:5000/api/Rate");
-		WebTarget deleteRateURL=baseUrl.path(""+id);
-		Response response=deleteRateURL.request().delete();
+		WebTarget baseUrl = client.target("http://localhost:5000/api/Rate");		
+		Response response=baseUrl.request().header("id",id).delete();
 		return response.getStatus();
 	}
 	
-	public int addRate(Rate rate){
+	public int addRate(Rate Rate){
 		Client client = ClientBuilder.newClient();
-
 		WebTarget baseUrl = client.target("http://localhost:5000/api/Rate");
-		Response response=baseUrl.request().post(Entity.entity(rate, MediaType.APPLICATION_JSON));
-		
+		Response response=baseUrl.request().post(Entity.entity(Rate, MediaType.APPLICATION_JSON));		
 		return response.getStatus();
 	}
 	
 	public int updateRate(Rate rate){
 		Client client = ClientBuilder.newClient();
-
-		WebTarget baseUrl = client.target("http://localhost:5000/api/Rate");
-		WebTarget updateRateURL=baseUrl.path(""+rate.getUserId());
-		Response response=updateRateURL.request().put(Entity.entity(rate, MediaType.APPLICATION_JSON));
-		
+		WebTarget baseUrl = client.target("http://localhost:5000/api/Rate");		
+		Response response=baseUrl.request().header("id", rate.getInteractionId()).put(Entity.entity(rate, MediaType.APPLICATION_JSON));		
 		return response.getStatus();
 	}
-
 
 }

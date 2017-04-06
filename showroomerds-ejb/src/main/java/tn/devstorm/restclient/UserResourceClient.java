@@ -2,7 +2,7 @@ package tn.devstorm.restclient;
 
 import java.util.List;
 
-import javax.ws.rs.HeaderParam;
+
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
@@ -21,67 +21,39 @@ public class UserResourceClient {
 	}
 	public List<User> getUsers(){
 		Client client = ClientBuilder.newClient();
-
 		WebTarget baseURL = client.target("http://localhost:5000/api/User/getall");
 		List<User> Users = baseURL.request(MediaType.APPLICATION_JSON).get(new GenericType<List<User>>() {});
 		client.close();
 		return Users;
 		
 	}
-	public String getUser(int id){
+	public User getUser(int id){
 		Client client = ClientBuilder.newClient();
-
-		WebTarget baseUrl = client.target("http://localhost:5000/api/User");
-		//WebTarget getUserURL=baseUrl.path(""+id);
-		//String response = getUserURL.request(MediaType.APPLICATION_JSON).get(String.class);
-		String response = baseUrl.request(MediaType.APPLICATION_JSON).header("id", id).get(String.class);
-		/*if (response.contains("\"deliveryAddress\":\"")){
-			return "showroomer";
-		}
-		else{
-			if(response.contains("\"description\":\"")){
-				return "buyer" ;
-			}
-			else{
-				User User=response.readEntity(User.class);
-				return "user";
-			}
-			
-		}*/
-		//User User=response.readEntity(User.class);
-		
-		//return User;
-		//response.close();
-		//client.close();
-		return response;
-		
+		WebTarget baseUrl = client.target("http://localhost:5000/api/User");		
+		Response response = baseUrl.request(MediaType.APPLICATION_JSON).header("id", id).get();
+		User user =response.readEntity(User.class);
+		response.close();		
+		return user;		
 	}
 	
 	public int deleteUser(int id){
 		Client client = ClientBuilder.newClient();
-
-		WebTarget baseUrl = client.target("http://localhost:5000/api/User");
-		WebTarget deleteUserURL=baseUrl.path(""+id);
-		Response response=deleteUserURL.request().delete();
+		WebTarget baseUrl = client.target("http://localhost:5000/api/User");		
+		Response response=baseUrl.request().header("id",id).delete();
 		return response.getStatus();
 	}
 	
 	public int addUser(User User){
 		Client client = ClientBuilder.newClient();
-
 		WebTarget baseUrl = client.target("http://localhost:5000/api/User");
-		Response response=baseUrl.request().post(Entity.entity(User, MediaType.APPLICATION_JSON));
-		
+		Response response=baseUrl.request().post(Entity.entity(User, MediaType.APPLICATION_JSON));		
 		return response.getStatus();
 	}
 	
-	public int updateUser(User User){
+	public int updateUser(User user){
 		Client client = ClientBuilder.newClient();
-
-		WebTarget baseUrl = client.target("http://localhost:5000/api/User");
-		WebTarget updateUserURL=baseUrl.path(""+User.getUserId());
-		Response response=updateUserURL.request().put(Entity.entity(User, MediaType.APPLICATION_JSON));
-		
+		WebTarget baseUrl = client.target("http://localhost:5000/api/User");		
+		Response response=baseUrl.request().header("id", user.getUserId()).put(Entity.entity(user, MediaType.APPLICATION_JSON));		
 		return response.getStatus();
 	}
 

@@ -1,7 +1,7 @@
 package com.typicode.jsonplaceholder;
 
-import java.sql.Date;
-import java.util.List;
+import java.util.Date;
+
 
 public class Comment extends Interaction {
 	private int commentId;

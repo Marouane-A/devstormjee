@@ -1,6 +1,6 @@
 package com.typicode.jsonplaceholder;
 
-import java.util.List;
+
 
 public class Rate extends Interaction{
 	private int mark;

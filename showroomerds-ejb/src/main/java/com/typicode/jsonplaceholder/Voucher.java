@@ -7,22 +7,14 @@ public class Voucher {
     private String name;
     private String description;
     private float amount;
-    private Showroomer showroomer;
-    
+   
+    private int UserId ;
+    private User user;
 	public Voucher() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Voucher(int voucherId, String reference, String name, String description, float amount,
-			Showroomer showroomer) {
-		super();
-		this.voucherId = voucherId;
-		this.reference = reference;
-		this.name = name;
-		this.description = description;
-		this.amount = amount;
-		this.showroomer = showroomer;
-	}
+	
 	public int getVoucherId() {
 		return voucherId;
 	}
@@ -53,16 +45,28 @@ public class Voucher {
 	public void setAmount(float amount) {
 		this.amount = amount;
 	}
-	public Showroomer getShowroomer() {
-		return showroomer;
+	
+	
+	public int getUserId() {
+		return UserId;
 	}
-	public void setShowroomer(Showroomer showroomer) {
-		this.showroomer = showroomer;
+
+	public void setUserId(int userId) {
+		UserId = userId;
 	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	@Override
 	public String toString() {
 		return "Voucher [voucherId=" + voucherId + ", reference=" + reference + ", name=" + name + ", description="
-				+ description + ", amount=" + amount + ", showroomer=" + showroomer + "]";
+				+ description + ", amount=" + amount + ", showroomer=" + user + "]";
 	}
 	
     
