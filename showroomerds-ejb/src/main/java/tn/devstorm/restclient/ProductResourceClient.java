@@ -68,6 +68,6 @@ public class ProductResourceClient {
 		
 		return response.getStatus();
 	}
-
+    
 
 }

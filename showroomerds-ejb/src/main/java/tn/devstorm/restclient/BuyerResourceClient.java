@@ -19,6 +19,8 @@ public class BuyerResourceClient {
 		 BuyerResourceClient src=new BuyerResourceClient();
 		System.out.println(src.getBuyer(2)); 
 		System.out.println(src.getBuyers());
+	
+		
 	}
 
 	public List<Buyer> getBuyers(){

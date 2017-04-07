@@ -13,9 +13,14 @@ import com.typicode.jsonplaceholder.Comment;
 
 public class CommentResourceClient {
 	public static void main(String []args) {
-		 CommentResourceClient src=new CommentResourceClient();
-		System.out.println(src.getComment(1));
+		CommentResourceClient src=new CommentResourceClient();
+		Comment c = new Comment();
+		c.setText("Good");
+		c.setUserId(1);
+		c.setProductId(2);
+		src.addComment(c);
 		System.out.println(src.getComments());
+		
 	}
 
 	public List<Comment> getComments(){

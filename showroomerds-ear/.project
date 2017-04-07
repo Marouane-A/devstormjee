@@ -3,6 +3,8 @@
 	<name>showroomerds-ear</name>
 	<comment></comment>
 	<projects>
+		<project>showroomerds-ejb</project>
+		<project>showroomerds-web</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
