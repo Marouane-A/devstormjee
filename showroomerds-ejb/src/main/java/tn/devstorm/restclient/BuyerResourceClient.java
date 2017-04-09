@@ -17,8 +17,24 @@ import com.typicode.jsonplaceholder.Buyer;
 public class BuyerResourceClient {
 	public static void main(String []args) throws JsonParseException, JsonMappingException, IOException{
 		 BuyerResourceClient src=new BuyerResourceClient();
-		System.out.println(src.getBuyer(2)); 
-		System.out.println(src.getBuyers());
+		// System.out.println(src.getBuyers());
+		// Buyer b =src.getBuyer(2);
+		 //System.out.println(b); 
+		 Buyer by = new Buyer();
+		 by.setUsername("testbuyer");
+		 by.setCity("aaa");
+		 by.setStreet("bbbb");
+		 by.setZipCode(1236);
+		 
+		src.addBuyer(by);
+		// Buyer d =src.getBuyer(c);
+		// System.out.println(c);
+		/* d.setUsername("Buyerup");
+		 int e =src.updateBuyer(d);
+		 System.out.println(e);*/
+		 //src.deleteBuyer(7);
+		 System.out.println(src.getBuyers());
+	
 	}
 
 	public List<Buyer> getBuyers(){
@@ -54,18 +70,15 @@ public class BuyerResourceClient {
 	
 	public int addBuyer(Buyer buyer){
 		Client client = ClientBuilder.newClient();
-
 		WebTarget baseUrl = client.target("http://localhost:5000/api/Buyer");
-		Response response=baseUrl.request().post(Entity.entity(buyer, MediaType.APPLICATION_JSON));
-		
+		Response response=baseUrl.request().post(Entity.entity(buyer, MediaType.APPLICATION_JSON));		
 		return response.getStatus();
 	}
 	
 	public int updateBuyer(Buyer buyer){
 		Client client = ClientBuilder.newClient();
 		WebTarget baseUrl = client.target("http://localhost:5000/api/Buyer");
-		Response response=baseUrl.request().header("id", buyer.getUserId()).put(Entity.entity(buyer, MediaType.APPLICATION_JSON));
-		
+		Response response=baseUrl.request().header("id", buyer.getUserId()).put(Entity.entity(buyer, MediaType.APPLICATION_JSON));		
 		return response.getStatus();
 	}
 

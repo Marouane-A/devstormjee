@@ -1,5 +1,6 @@
 package tn.devstorm.restclient;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.ws.rs.client.Client;
@@ -14,8 +15,16 @@ import com.typicode.jsonplaceholder.Comment;
 public class CommentResourceClient {
 	public static void main(String []args) {
 		 CommentResourceClient src=new CommentResourceClient();
-		System.out.println(src.getComment(1));
-		System.out.println(src.getComments());
+		//System.out.println(src.getComment(1));
+		//System.out.println(src.getComments());
+		Comment c =new Comment();
+		c.setText("textyyy");
+		c.setUserId(2);
+		c.setProductId(2);
+		c.setDate(new Date(117,10,12));
+		
+		System.out.println(src.addComment(c));
+		
 	}
 
 	public List<Comment> getComments(){
@@ -51,18 +60,15 @@ public class CommentResourceClient {
 	
 	public int addComment(Comment Comment){
 		Client client = ClientBuilder.newClient();
-
 		WebTarget baseUrl = client.target("http://localhost:5000/api/Comment");
-		Response response=baseUrl.request().post(Entity.entity(Comment, MediaType.APPLICATION_JSON));
-		
+		Response response=baseUrl.request().post(Entity.entity(Comment, MediaType.APPLICATION_JSON));		
 		return response.getStatus();
 	}
 	
 	public int updateComment(Comment Comment){
 		Client client = ClientBuilder.newClient();
 		WebTarget baseUrl = client.target("http://localhost:5000/api/Comment");
-		Response response=baseUrl.request().header("id", Comment.getUserId()).put(Entity.entity(Comment, MediaType.APPLICATION_JSON));
-		
+		Response response=baseUrl.request().header("id", Comment.getUserId()).put(Entity.entity(Comment, MediaType.APPLICATION_JSON));		
 		return response.getStatus();
 	}
 

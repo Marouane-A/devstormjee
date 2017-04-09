@@ -17,7 +17,13 @@ public class UserResourceClient {
 
 	public static void main (String [] args){
 		UserResourceClient urc =new UserResourceClient();
-		System.out.println(urc.getUser(1));
+		System.out.println(urc.getUsers());
+		User u =urc.getUser(8);
+		u.setUsername("testing");
+		u.setCity("Ariana");
+		u.setStreet("ghazela");
+		urc.updateUser(u);
+		System.out.println(urc.getUsers());
 	}
 	public List<User> getUsers(){
 		Client client = ClientBuilder.newClient();

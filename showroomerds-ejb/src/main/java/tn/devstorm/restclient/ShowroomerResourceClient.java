@@ -18,7 +18,13 @@ import com.typicode.jsonplaceholder.Showroomer;
 public class ShowroomerResourceClient {
 	public static void main (String [] args){
 		ShowroomerResourceClient urc =new ShowroomerResourceClient();
-		System.out.println(urc.getShowroomer(3));
+		//System.out.println(urc.getShowroomer(3));
+		Showroomer sh =new Showroomer();
+		sh.setUsername("Showroomer");
+		sh.setDescription("im not happy with testing ");
+		sh.setUserId(11);
+		urc.updateShowroomer(sh);
+		
 	}
 	public List<Showroomer> getShowroomers(){
 		Client client = ClientBuilder.newClient();
