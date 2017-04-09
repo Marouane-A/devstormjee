@@ -19,11 +19,16 @@ public class Product {
 		super();
 	}
 
+	
+
 	@Override
 	public String toString() {
 		return "Product [productId=" + productId + ", name=" + name + ", brand=" + brand + ", category=" + category
-				+ ", discount=" + discount + ", price=" + price + ", quantity=" + quantity + ", tva=" + tva + "]";
+				+ ", discount=" + discount + ", price=" + price + ", quantity=" + quantity + ", tva=" + tva
+				+ ", interactions=" + interactions + ", showrooms=" + showrooms + ", images=" + images + "]";
 	}
+
+
 
 	public List<Image> getImages() {
 		return images;
@@ -87,15 +92,9 @@ public class Product {
 	public void setTva(float tva) {
 		this.tva = tva;
 	}
-
-
-
 	public List<Interaction> getInteractions() {
 		return interactions;
 	}
-
-
-
 	public void setInteractions(List<Interaction> interactions) {
 		this.interactions = interactions;
 	}

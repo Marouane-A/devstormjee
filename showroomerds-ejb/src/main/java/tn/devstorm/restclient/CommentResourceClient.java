@@ -14,16 +14,7 @@ import com.typicode.jsonplaceholder.Comment;
 
 public class CommentResourceClient {
 	public static void main(String []args) {
-		 CommentResourceClient src=new CommentResourceClient();
-		//System.out.println(src.getComment(1));
-		//System.out.println(src.getComments());
-		Comment c =new Comment();
-		c.setText("textyyy");
-		c.setUserId(2);
-		c.setProductId(2);
-		c.setDate(new Date(117,10,12));
-		
-		System.out.println(src.addComment(c));
+
 		
 	}
 

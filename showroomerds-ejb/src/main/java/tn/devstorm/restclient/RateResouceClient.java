@@ -19,7 +19,7 @@ public class RateResouceClient {
 
 	public static void main (String [] args){
 		RateResouceClient urc =new RateResouceClient();
-		System.out.println(urc.getRate(2));
+		System.out.println(urc.getRates());
 	}
 	public List<Rate> getRates(){
 		Client client = ClientBuilder.newClient();
