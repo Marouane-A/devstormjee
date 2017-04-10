@@ -12,6 +12,7 @@ public class Product {
 	float price;
 	int quantity;
 	float tva;
+	String facebookId;
 	private List<Interaction> interactions = new ArrayList<Interaction>();
 	private List<Showroom> showrooms = new ArrayList<Showroom>();
 	private List<Image> images = new ArrayList<Image>();
@@ -98,7 +99,11 @@ public class Product {
 	public void setInteractions(List<Interaction> interactions) {
 		this.interactions = interactions;
 	}
-
-	
+	public String getFacebookId() {
+		return facebookId;
+	}
+	public void setFacebookId(String facebookId) {
+		this.facebookId = facebookId;
+	}	
 
 }

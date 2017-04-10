@@ -44,5 +44,11 @@
         <dependent-module archiveName="jcip-annotations.jar" deploy-path="/" handle="module:/classpath/var/M2_REPO/net/jcip/jcip-annotations/1.0/jcip-annotations-1.0.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="restfb.jar" deploy-path="/" handle="module:/classpath/var/M2_REPO/com/restfb/restfb/1.39.0/restfb-1.39.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="twitter4j-core.jar" deploy-path="/" handle="module:/classpath/var/M2_REPO/org/twitter4j/twitter4j-core/4.0.6/twitter4j-core-4.0.6.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
     </wb-module>
 </project-modules>

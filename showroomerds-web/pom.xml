@@ -28,6 +28,18 @@
 			<type>ejb</type>
 			<scope>provided</scope>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.restfb/restfb -->
+	<dependency>
+   		 <groupId>com.restfb</groupId>
+    	 <artifactId>restfb</artifactId>
+    	 <version>1.39.0</version>
+	</dependency>
+	<dependency>
+           <groupId>org.twitter4j</groupId>
+           <artifactId>twitter4j-core</artifactId>
+           <version>4.0.6</version>
+       </dependency>
+	
 	</dependencies>
 
 	<build>
