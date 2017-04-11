@@ -47,6 +47,12 @@
         <dependent-module archiveName="restfb.jar" deploy-path="/" handle="module:/classpath/var/M2_REPO/com/restfb/restfb/1.39.0/restfb-1.39.0.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="dropbox-core-sdk.jar" deploy-path="/" handle="module:/classpath/var/M2_REPO/com/dropbox/core/dropbox-core-sdk/1.7.7/dropbox-core-sdk-1.7.7.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jackson-core.jar" deploy-path="/" handle="module:/classpath/var/M2_REPO/com/fasterxml/jackson/core/jackson-core/2.4.0-rc3/jackson-core-2.4.0-rc3.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <dependent-module archiveName="twitter4j-core.jar" deploy-path="/" handle="module:/classpath/var/M2_REPO/org/twitter4j/twitter4j-core/4.0.6/twitter4j-core-4.0.6.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
